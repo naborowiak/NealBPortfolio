@@ -5,9 +5,12 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nealb.pro',
-  base: '/',
-  integrations: [tailwind(), react()],
+  site: 'https://naborowiak.github.io',
+  base: '/NealBPortfolio',
+  integrations: [
+    tailwind(),
+    react()
+  ],
   vite: {
     resolve: {
       alias: {
