@@ -1,9 +1,11 @@
 ---
+import { motion } from "framer-motion";
+
 const navItems = [
   { name: 'Home', href: '#' },
   { name: 'Projects', href: '#projects' },
   { name: 'Resources', href: '#resources' },
-  { name: 'Knowledge Base', href: '#knowledge-base' },
+  { name: 'Knowledge Base', href: '#knowledge-base' }
 ];
 ---
 
@@ -11,78 +13,120 @@ const navItems = [
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center gap-8">
-        <a href="/" class="text-xl font-semibold text-polaris-accent hover:text-polaris-primary transition">
+        <a 
+          href="/" 
+          class="text-xl font-semibold text-polaris-accent hover:text-polaris-primary transition-colors"
+        >
           Neal B.
         </a>
         <div class="hidden md:flex items-center gap-6">
           {navItems.map(item => (
             <a 
               href={item.href}
-              class="text-polaris-text hover:text-polaris-primary transition px-3 py-2 rounded-md text-sm font-medium"
+              class="group relative text-polaris-text hover:text-polaris-primary transition-colors px-3 py-2 text-sm font-medium"
             >
               {item.name}
+              <span class="absolute inset-x-0 bottom-0 h-0.5 bg-polaris-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
             </a>
           ))}
         </div>
       </div>
       <div class="flex items-center gap-4">
         <button 
-          class="bg-polaris-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition"
+          class="bg-polaris-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition-colors relative overflow-hidden group"
         >
-          Contact
+          <span class="relative z-10">Contact</span>
+          <div class="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform"></div>
+        </button>
+        
+        <!-- Mobile menu button -->
+        <button 
+          type="button"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-polaris-text hover:text-polaris-primary focus:outline-none"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="md:hidden hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="block px-3 py-2 rounded-md text-base font-medium text-polaris-text hover:text-polaris-primary hover:bg-polaris-hover transition-colors"
+        >
+          {item.name}
+        </a>
+      ))}
     </div>
   </div>
 </nav>
 
 <script>
-  
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
+  // Mobile menu toggle
+  const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton?.addEventListener('click', () => {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = e.currentTarget as HTMLAnchorElement;
-      const targetId = target.getAttribute("href")?.substring(1) || "";
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
+      const href = this.getAttribute('href');
+      if (href) {
+        const target = document.querySelector(href);
+        target?.scrollIntoView({
+          behavior: 'smooth'
         });
+        // Close mobile menu if open
+        mobileMenu?.classList.add('hidden');
+        menuButton?.setAttribute('aria-expanded', 'false');
       }
     });
   });
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll("nav a[href^='#']");
-    const observerOptions = { threshold: 0.6 };
+  // Active section highlighting
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7
+  };
 
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => link.classList.remove("active"));
-          const id = entry.target.getAttribute("id");
-          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add("active");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        document.querySelectorAll('nav a').forEach(link => {
+          link.classList.remove('text-polaris-primary');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('text-polaris-primary');
           }
-        }
-      });
-    };
+        });
+      }
+    });
+  }, observerOptions);
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    sections.forEach((section) => observer.observe(section));
+  document.querySelectorAll('section[id]').forEach(section => {
+    observer.observe(section);
   });
 </script>
 
 <style>
-  @media (max-width: 767px) {
-    body {
-      padding-bottom: 70px;
-    }
-  }
-  
-  nav a.active {
-    color: white !important;
+  /* Add smooth transition for mobile menu */
+  #mobile-menu {
+    transition: all 0.3s ease-in-out;
   }
 </style>
