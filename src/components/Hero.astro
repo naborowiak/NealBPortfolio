@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+import FadeIn from './react/FadeIn';
+---
+
+<section class="py-16 md:py-24">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <FadeIn client:load>
+          <div class="inline-block px-4 py-2 bg-polaris-secondary/10 rounded-full">
+            <span class="text-polaris-primary font-medium">ServiceNow Development Hub</span>
+          </div>
+        </FadeIn>
+        
+        <FadeIn client:load delay={0.2}>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-polaris-accent">
+            Transform Your <span class="text-polaris-primary">ServiceNow</span> Development
+          </h1>
+        </FadeIn>
+
+        <FadeIn client:load delay={0.4}>
+          <p class="text-lg text-polaris-text/80">
+            Expert ServiceNow development, custom solutions, and best practices. 
+            Powered by AI for smarter, faster implementations.
+          </p>
+        </FadeIn>
+
+        <FadeIn client:load delay={0.6}>
+          <div class="flex gap-4">
+            <a 
+              href="#projects"
+              class="bg-polaris-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition"
+            >
+              View Projects
+            </a>
+            <a 
+              href="#ai-assistant"
+              class="border border-polaris-border text-polaris-accent px-6 py-3 rounded-lg font-medium hover:bg-polaris-hover transition"
+            >
+              Try AI Assistant
+            </a>
+          </div>
+        </FadeIn>
+      </div>
+
+      <FadeIn client:load delay={0.4} direction="left">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-polaris-primary/20 to-polaris-secondary/20 rounded-2xl blur-3xl"></div>
+          <div class="relative bg-white p-6 rounded-2xl shadow-xl">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-2 h-2 rounded-full bg-red-500"></div>
+              <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+              <div class="w-2 h-2 rounded-full bg-green-500"></div>
+            </div>
+            <pre class="bg-polaris-accent/5 p-4 rounded-lg overflow-x-auto">
+              <code class="text-sm text-polaris-accent">
+                {`// ServiceNow Script Include Example
+var IncidentUtils = Class.create();
+IncidentUtils.prototype = {
+    initialize: function() {
+        this.tableName = 'incident';
+    },
+
+    getPriority: function(impact, urgency) {
+        // Calculate priority matrix
+        return priority;
+    },
+
+    type: 'IncidentUtils'
+};`}
+              </code>
+            </pre>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</section> 

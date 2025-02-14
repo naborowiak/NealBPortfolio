@@ -1,0 +1,82 @@
+---
+const resources = [
+  {
+    category: "Development Guides",
+    items: [
+      {
+        title: "ServiceNow Script Include Best Practices",
+        description: "Learn how to write efficient and maintainable Script Includes",
+        link: "#"
+      },
+      {
+        title: "Flow Designer Advanced Techniques",
+        description: "Master ServiceNow's Flow Designer for complex automations",
+        link: "#"
+      }
+    ]
+  },
+  {
+    category: "Tools & Utilities",
+    items: [
+      {
+        title: "Custom Widget Builder",
+        description: "Generate boilerplate code for Service Portal widgets",
+        link: "#"
+      },
+      {
+        title: "Integration Helper",
+        description: "Tools for REST/SOAP integration development",
+        link: "#"
+      }
+    ]
+  }
+];
+---
+
+<section id="resources" class="py-16 bg-polaris-bg">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-polaris-accent mb-4">Resource Hub</h2>
+      <p class="text-polaris-text/80 max-w-2xl mx-auto">
+        Curated resources and tools for ServiceNow developers
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {resources.map(category => (
+        <div class="space-y-6">
+          <h3 class="text-xl font-semibold text-polaris-accent">
+            {category.category}
+          </h3>
+          <div class="space-y-4">
+            {category.items.map(item => (
+              <a 
+                href={item.link}
+                class="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition"
+              >
+                <h4 class="text-lg font-medium text-polaris-primary mb-2">
+                  {item.title}
+                </h4>
+                <p class="text-polaris-text/80">
+                  {item.description}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 bg-white rounded-xl shadow-lg p-8 text-center">
+      <h3 class="text-2xl font-bold text-polaris-accent mb-4">
+        Need Custom Solutions?
+      </h3>
+      <p class="text-polaris-text/80 mb-6 max-w-2xl mx-auto">
+        Let's discuss how we can optimize your ServiceNow implementation
+      </p>
+      <button class="bg-polaris-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">
+        Get in Touch
+      </button>
+    </div>
+  </div>
+</section> 

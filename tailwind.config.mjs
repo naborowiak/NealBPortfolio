@@ -13,6 +13,17 @@ export default {
       animation: {
         scale: 'scaleAnim 300ms ease-in-out',
       },
+      colors: {
+        'polaris': {
+          primary: 'var(--polaris-primary)',
+          secondary: 'var(--polaris-secondary)',
+          accent: 'var(--polaris-accent)',
+          bg: 'var(--polaris-bg)',
+          text: 'var(--polaris-text)',
+          border: 'var(--polaris-border)',
+          hover: 'var(--polaris-hover)',
+        },
+      },
     },
   },
   plugins: [],

@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css';
+import ScrollProgress from '../components/react/ScrollProgress';
+
 interface Props {
   title: string;
 }
@@ -10,70 +13,61 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Software Developer" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-
+    <meta name="description" content="ServiceNow Development Hub - Neal Borowiak" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- ServiceNow Polaris Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
-    </noscript>
-
-    <title>{title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-[--background] md:px-48 lg:px-20 px-9">
+  <body class="bg-polaris-bg text-polaris-text">
+    <ScrollProgress client:load />
     <slot />
   </body>
 </html>
 
 <style is:global>
   :root {
-    --background: #101010;
-    --sec: #A476FF;
-    --white: #dfdfdf;
-    --white-icon: #f3f3f398;
-    --white-icon-tr: #f3f3f310;
-    --font: "montserrat", system-ui, sans-serif;
+    /* ServiceNow Polaris Color Palette */
+    --polaris-primary: #2E8B57;
+    --polaris-secondary: #81B5A1;
+    --polaris-accent: #293E40;
+    --polaris-bg: #F6F7F9;
+    --polaris-text: #2C3E50;
+    --polaris-border: #E2E8F0;
+    --polaris-hover: #F1F5F9;
   }
 
   * {
-    font-family: var(--font);
     box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 
-  *::selection {
-    background-color: var(--sec);
-    color: var(--background);
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
   }
 
-  /* Scrollbar styles */
-
+  /* Modern scrollbar */
   ::-webkit-scrollbar {
-    width: 15px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--container);
-    border-radius: 30px;
+    background: var(--polaris-bg);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--background);
-    border-radius: 10px;
+    background: var(--polaris-border);
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--pink);
-  }
-
-  /* Scrollbar styles for Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--line) var(--container);
+    background: var(--polaris-accent);
   }
 </style>
