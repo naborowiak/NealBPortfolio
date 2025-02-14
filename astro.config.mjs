@@ -8,7 +8,9 @@ export default defineConfig({
   site: 'https://naborowiak.github.io',
   base: '/NealBPortfolio',
   integrations: [
-    tailwind(),
+    tailwind({
+      config: { path: './tailwind.config.mjs' }
+    }),
     react()
   ],
   vite: {
@@ -17,6 +19,9 @@ export default defineConfig({
         '@': '/src',
         '@components': '/src/components'
       }
+    },
+    ssr: {
+      noExternal: ['@astrojs/react']
     }
   },
   output: 'static',
