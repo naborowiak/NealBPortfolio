@@ -9,8 +9,7 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@assets/*": ["src/assets/*"]
-    },
-    "types": ["@astrojs/image/client"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
