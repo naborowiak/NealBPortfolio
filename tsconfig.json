@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "module": "es2020",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "noEmit": true,
+    "isolatedModules": true,
     "types": [
-      "astro/client"
+      "astro/env"
     ],
-    "moduleResolution": "node",
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -21,7 +24,9 @@
     "jsxImportSource": "react"
   },
   "include": [
-    "src/**/*",
-    "astro.config.ts"
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
