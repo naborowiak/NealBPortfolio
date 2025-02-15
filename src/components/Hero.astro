@@ -1,5 +1,4 @@
 ---
-- import { Image } from 'astro:assets';
 import FadeIn from './react/FadeIn';
 ---
 
@@ -15,14 +14,17 @@ import FadeIn from './react/FadeIn';
         
         <FadeIn client:load delay={0.2}>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-polaris-accent">
-            Transform Your <span class="text-polaris-primary">ServiceNow</span> Development
+            Neal <span class="text-polaris-primary">Borowiak</span>
           </h1>
+          <p class="text-2xl text-polaris-accent/80 mt-2">
+            ServiceNow Developer & Solution Architect
+          </p>
         </FadeIn>
 
         <FadeIn client:load delay={0.4}>
           <p class="text-lg text-polaris-text/80">
-            Expert ServiceNow development, custom solutions, and best practices. 
-            Powered by AI for smarter, faster implementations.
+            Transforming business processes with innovative ServiceNow solutions. 
+            Specializing in ITSM, ITOM, and custom application development.
           </p>
         </FadeIn>
 
@@ -35,10 +37,10 @@ import FadeIn from './react/FadeIn';
               View Projects
             </a>
             <a 
-              href="#ai-assistant"
+              href="#contact"
               class="border border-polaris-border text-polaris-accent px-6 py-3 rounded-lg font-medium hover:bg-polaris-hover transition"
             >
-              Try AI Assistant
+              Contact Me
             </a>
           </div>
         </FadeIn>
@@ -56,19 +58,17 @@ import FadeIn from './react/FadeIn';
             <pre class="bg-polaris-accent/5 p-4 rounded-lg overflow-x-auto">
               <code class="text-sm text-polaris-accent">
                 {`// ServiceNow Script Include Example
-var IncidentUtils = Class.create();
-IncidentUtils.prototype = {
-    initialize: function() {
-        this.tableName = 'incident';
-    },
-
-    getPriority: function(impact, urgency) {
-        // Calculate priority matrix
-        return priority;
-    },
-
-    type: 'IncidentUtils'
-};`}
+class ServiceNowUtils {
+    constructor() {
+        this.platform = 'ServiceNow';
+        this.expertise = ['ITSM', 'ITOM', 'CSM'];
+        this.skills = {
+            development: 'Expert',
+            architecture: 'Advanced',
+            integration: 'Specialist'
+        };
+    }
+}`}
               </code>
             </pre>
           </div>

@@ -24,6 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme: (newTheme: Theme) => {
       setTheme(newTheme);
       localStorage.setItem('theme', newTheme);
+      document.documentElement.setAttribute('data-theme', newTheme);
     },
   };
 

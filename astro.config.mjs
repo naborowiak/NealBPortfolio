@@ -19,7 +19,7 @@ export default defineConfig({
       }
     },
     ssr: {
-      noExternal: ['@astrojs/react']
+      noExternal: ['@astrojs/react', 'framer-motion', '@react-three/fiber', '@react-three/drei']
     }
   },
   output: 'static',
