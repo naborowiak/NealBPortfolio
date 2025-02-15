@@ -12,8 +12,8 @@ const FloatingLogo = () => {
     let animationFrame: number;
 
     const animate = () => {
-      rotation += 0.5;
-      height = Math.sin(Date.now() / 1000) * 10;
+      rotation += 0.2;
+      height = Math.sin(Date.now() / 1000) * 5;
       
       logo.style.transform = `
         rotateY(${rotation}deg) 
@@ -33,14 +33,14 @@ const FloatingLogo = () => {
   return (
     <div 
       ref={logoRef}
-      className="fixed top-20 right-20 w-20 h-20 opacity-30"
+      className="fixed top-20 right-20 w-20 h-20 opacity-20 hover:opacity-40 transition-opacity"
       style={{ 
         perspective: '1000px',
         transformStyle: 'preserve-3d'
       }}
     >
       <img 
-        src="/servicenow-logo.png" 
+        src="/images/servicenow-logo.png" 
         alt="ServiceNow Logo"
         className="w-full h-full object-contain"
       />

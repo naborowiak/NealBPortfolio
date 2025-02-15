@@ -44,8 +44,8 @@ const Background3D = () => {
     let mouseY = 0;
 
     const handleMouseMove = (event: MouseEvent) => {
-      mouseX = event.clientX / window.innerWidth - 0.5;
-      mouseY = event.clientY / window.innerHeight - 0.5;
+      mouseX = (event.clientX / window.innerWidth - 0.5) * 0.05;
+      mouseY = (event.clientY / window.innerHeight - 0.5) * 0.05;
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -54,12 +54,12 @@ const Background3D = () => {
     const animate = () => {
       requestAnimationFrame(animate);
 
-      particlesMesh.rotation.x += 0.001;
-      particlesMesh.rotation.y += 0.001;
+      particlesMesh.rotation.x += 0.0005;
+      particlesMesh.rotation.y += 0.0005;
 
       // Mouse interaction
-      particlesMesh.rotation.x += mouseY * 0.1;
-      particlesMesh.rotation.y += mouseX * 0.1;
+      particlesMesh.rotation.x += mouseY * 0.05;
+      particlesMesh.rotation.y += mouseX * 0.05;
 
       renderer.render(scene, camera);
     };
