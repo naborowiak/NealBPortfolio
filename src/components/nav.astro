@@ -1,0 +1,84 @@
+---
+const navItems = [
+  { name: 'Home', href: '#' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Resources', href: '#resources' },
+  { name: 'Knowledge Base', href: '#knowledge-base' }
+];
+---
+
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-polaris-border">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-8">
+        <a 
+          href="/" 
+          class="text-xl font-semibold text-polaris-accent hover:text-polaris-primary transition-colors"
+        >
+          Neal B.
+        </a>
+        <div class="hidden md:flex items-center gap-6">
+          {navItems.map(item => (
+            <a 
+              href={item.href}
+              class="group relative text-polaris-text hover:text-polaris-primary transition-colors px-3 py-2 text-sm font-medium"
+            >
+              {item.name}
+              <span class="absolute inset-x-0 bottom-0 h-0.5 bg-polaris-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-4">
+        <a 
+          href="#contact"
+          class="bg-polaris-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition-colors"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if (href) {
+        const target = document.querySelector(href);
+        target?.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Active section highlighting
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        document.querySelectorAll('nav a').forEach(link => {
+          link.classList.remove('text-polaris-primary');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('text-polaris-primary');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('section[id]').forEach(section => {
+    observer.observe(section);
+  });
+</script>
