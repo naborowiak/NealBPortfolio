@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-interface ThemeStore {
-  theme: 'light' | 'dark';
+export type Theme = 'light' | 'dark';
+
+export interface ThemeState {
+  theme: Theme;
   toggleTheme: () => void;
 }
 
-export const useThemeStore = create<ThemeStore>()(
+export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
       theme: 'light',
