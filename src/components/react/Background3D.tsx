@@ -1,44 +1,73 @@
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
-import { Mesh } from 'three';
-import { Environment, Float } from '@react-three/drei';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { useThemeStore } from '../../context/ThemeContext';
 
-function AnimatedSphere() {
-  const meshRef = useRef<Mesh>(null);
+const Background3D = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const theme = useThemeStore(state => state.theme);
 
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.2;
-      meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    containerRef.current.appendChild(renderer.domElement);
+
+    // Create particles
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 2000;
+    const posArray = new Float32Array(particlesCount * 3);
+
+    for (let i = 0; i < particlesCount * 3; i++) {
+      posArray[i] = (Math.random() - 0.5) * 5;
     }
-  });
+
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+    // Use theme-aware color
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.005,
+      color: theme === 'dark' ? '#3DA76D' : '#2E8B57',
+      transparent: true,
+      opacity: 0.8,
+    });
+
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+
+    camera.position.z = 2;
+
+    // Animation
+    const animate = () => {
+      requestAnimationFrame(animate);
+      particlesMesh.rotation.x += 0.0005;
+      particlesMesh.rotation.y += 0.0005;
+      renderer.render(scene, camera);
+    };
+
+    animate();
+
+    // Cleanup
+    return () => {
+      containerRef.current?.removeChild(renderer.domElement);
+    };
+  }, [theme]); // Re-run effect when theme changes
 
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-      <mesh ref={meshRef}>
-        <torusKnotGeometry args={[1, 0.3, 128, 16]} />
-        <meshStandardMaterial
-          color="#2E8B57"
-          roughness={0.3}
-          metalness={0.8}
-        />
-      </mesh>
-    </Float>
+    <div 
+      ref={containerRef} 
+      className="fixed top-0 left-0 w-full h-full -z-10"
+      style={{ 
+        background: theme === 'dark' 
+          ? 'radial-gradient(circle at center, #1A1A1A 0%, #000000 100%)'
+          : 'radial-gradient(circle at center, #F6F7F9 0%, #E2E8F0 100%)'
+      }}
+    />
   );
-}
+};
 
-export default function Background3D() {
-  const theme = 'dark'; // Assuming a default theme
-
-  return (
-    <div className="fixed inset-0 -z-10 opacity-50">
-      <Canvas camera={{ position: [0, 0, 5] }}>
-        <Environment preset="city" />
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <AnimatedSphere />
-      </Canvas>
-    </div>
-  );
-} 
+export default Background3D; 
