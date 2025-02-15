@@ -5,12 +5,10 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://naborowiak.github.io',
-  base: '/NealBPortfolio',
+  site: 'https://nealb.pro',
+  base: '/',
   integrations: [
-    tailwind({
-      config: { path: './tailwind.config.mjs' }
-    }),
+    tailwind(),
     react()
   ],
   vite: {
