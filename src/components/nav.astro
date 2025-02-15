@@ -7,48 +7,6 @@ const navItems = [
 ];
 ---
 
-<<<<<<< HEAD
-<header class="w-full fixed top-0 z-50 border-b border-[#ffffff10] backdrop-blur-md">
-  <nav class="max-w-5xl mx-auto p-4">
-    <ul class="flex justify-end gap-8">
-      {
-        navItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class="text-[var(--white-icon)] hover:text-[var(--white)] transition-colors"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
-</header>
-
-<div class="flex justify-center w-full">
-  <nav class="fixed flex left-0 right-0 z-[100] bg-[#1414149c] border border-1 border-[var(--white-icon-tr)] backdrop-blur-xl transition-all md:top-0 md:bottom-auto bottom-0 md:w-[33rem] rounded-t-2xl md:rounded-full md:mt-6 md:justify-self-center">  
-    <div class="container mx-auto flex justify-center items-center p-3">
-      <ul class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-6">
-        {
-          navItems.map((item) => (
-            <li class="flex-1 md:flex-none">
-              <a
-                href={item.href}
-                class="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base"
-              >
-                <span class="md:hidden flex items-center justify-center w-6 h-6">
-                  <fragment set:html={item.icon} />
-                </span>
-                <span class="hidden md:inline-block">{item.label}</span>
-                <span class="md:hidden">{item.label}</span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-=======
 <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-polaris-border">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-16">
@@ -71,51 +29,20 @@ const navItems = [
           ))}
         </div>
       </div>
+      
       <div class="flex items-center gap-4">
-        <button 
-          class="bg-polaris-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition-colors relative overflow-hidden group"
+        <a 
+          href="#contact"
+          class="bg-polaris-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition-colors"
         >
-          <span class="relative z-10">Contact</span>
-          <div class="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform"></div>
-        </button>
-        
-        <!-- Mobile menu button -->
-        <button 
-          type="button"
-          class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-polaris-text hover:text-polaris-primary focus:outline-none"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Open main menu</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
-    </div>
-  </div>
-
-  <!-- Mobile menu -->
-  <div class="md:hidden hidden" id="mobile-menu">
-    <div class="px-2 pt-2 pb-3 space-y-1">
-      {navItems.map(item => (
-        <a
-          href={item.href}
-          class="block px-3 py-2 rounded-md text-base font-medium text-polaris-text hover:text-polaris-primary hover:bg-polaris-hover transition-colors"
-        >
-          {item.name}
+          Contact
         </a>
-      ))}
+      </div>
     </div>
   </div>
 </nav>
 
 <script>
-<<<<<<< HEAD
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-=======
   // Mobile menu toggle
   const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -129,7 +56,6 @@ const navItems = [
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
       e.preventDefault();
       const href = this.getAttribute('href');
       if (href) {
@@ -151,16 +77,6 @@ const navItems = [
     threshold: 0.7
   };
 
-<<<<<<< HEAD
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => link.classList.remove("active"));
-          const id = entry.target.getAttribute("id");
-          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add("active");
-=======
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -169,7 +85,6 @@ const navItems = [
           link.classList.remove('text-polaris-primary');
           if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('text-polaris-primary');
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
           }
         });
       }
