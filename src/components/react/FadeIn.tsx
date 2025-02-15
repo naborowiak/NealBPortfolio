@@ -1,27 +1,32 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
 
-interface Props {
-  children: ReactNode;
+interface FadeInProps {
+  children: React.ReactNode;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right';
 }
 
-export default function FadeIn({ children, delay = 0, direction = 'up' }: Props) {
-  const directions = {
-    up: { y: 20 },
-    down: { y: -20 },
-    left: { x: -20 },
-    right: { x: 20 }
+const FadeIn: React.FC<FadeInProps> = ({ children, delay = 0, direction = 'up' }) => {
+  const getDirectionOffset = () => {
+    switch (direction) {
+      case 'up': return { y: 20 };
+      case 'down': return { y: -20 };
+      case 'left': return { x: 20 };
+      case 'right': return { x: -20 };
+      default: return { y: 0 };
+    }
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, ...directions[direction] }}
+      initial={{ opacity: 0, ...getDirectionOffset() }}
       animate={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+      transition={{ duration: 0.5, delay }}
     >
       {children}
     </motion.div>
   );
-} 
+};
+
+export default FadeIn; 

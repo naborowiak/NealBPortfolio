@@ -17,38 +17,35 @@ const categories = [
 ];
 ---
 
-<section id="knowledge-base" class="py-16 bg-gradient-to-b from-polaris-bg to-white">
+<section class="py-16 bg-polaris-bg" id="knowledge-base">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
       <h2 class="text-3xl font-bold text-polaris-accent mb-4">Knowledge Base</h2>
       <p class="text-polaris-text/80 max-w-2xl mx-auto">
-        Explore curated ServiceNow development resources and best practices
+        Explore technical articles and solutions
       </p>
     </div>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      {categories.map(category => (
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="text-polaris-primary">
-              <Fragment set:html={category.icon} />
-            </div>
-            <h3 class="text-xl font-semibold text-polaris-accent">
-              {category.title}
-            </h3>
-          </div>
-          <ul class="space-y-3">
-            {category.topics.map(topic => (
-              <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-polaris-primary" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-polaris-text/80">{topic}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <article class="bg-white rounded-xl p-6 shadow-sm">
+        <h3 class="text-xl font-semibold text-polaris-accent mb-3">
+          ServiceNow Development Tips
+        </h3>
+        <p class="text-polaris-text/80 mb-4">
+          Best practices and tips for ServiceNow development
+        </p>
+        <a href="#" class="text-polaris-primary hover:underline">Read more →</a>
+      </article>
+      
+      <article class="bg-white rounded-xl p-6 shadow-sm">
+        <h3 class="text-xl font-semibold text-polaris-accent mb-3">
+          Integration Guides
+        </h3>
+        <p class="text-polaris-text/80 mb-4">
+          Step-by-step guides for common integrations
+        </p>
+        <a href="#" class="text-polaris-primary hover:underline">Read more →</a>
+      </article>
     </div>
   </div>
 </section> 
