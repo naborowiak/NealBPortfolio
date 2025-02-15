@@ -1,14 +1,10 @@
 ---
-<<<<<<< HEAD
-import Background3D from "../React/Background3D";
-=======
 import '../styles/global.css';
 import ScrollProgress from '../components/react/ScrollProgress';
 import Background3D from '../components/react/Background3D';
 import ThemeSwitcher from '../components/react/ThemeSwitcher';
 import { ThemeProvider } from '../context/ThemeContext';
 
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
 interface Props {
   title: string;
 }
@@ -20,12 +16,6 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-<<<<<<< HEAD
-    <meta name="description" content="ServiceNow Developer | Neal Borowiak" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-
-=======
     <meta name="description" content="ServiceNow Development Hub - Neal Borowiak" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -33,16 +23,10 @@ const { title } = Astro.props;
     <title>{title}</title>
     
     <!-- ServiceNow Polaris Font -->
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
-<<<<<<< HEAD
-  <body class="bg-[--background] md:px-48 lg:px-20 px-9">
-    <Background3D client:load />
-    <slot />
-=======
   <body class="bg-polaris-bg text-polaris-text">
     <ThemeProvider client:load>
       <ScrollProgress client:load />
@@ -50,20 +34,11 @@ const { title } = Astro.props;
       <slot />
       <ThemeSwitcher client:load />
     </ThemeProvider>
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
   </body>
 </html>
 
 <style is:global>
   :root {
-<<<<<<< HEAD
-    --background: #101010;
-    --sec: #0066cc; /* ServiceNow blue */
-    --white: #dfdfdf;
-    --white-icon: #f3f3f398;
-    --white-icon-tr: #f3f3f310;
-    --font: "montserrat", system-ui, sans-serif;
-=======
     /* ServiceNow Polaris Color Palette */
     --polaris-primary: #2E8B57;
     --polaris-secondary: #81B5A1;
@@ -72,7 +47,6 @@ const { title } = Astro.props;
     --polaris-text: #2C3E50;
     --polaris-border: #E2E8F0;
     --polaris-hover: #F1F5F9;
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
   }
 
   * {
