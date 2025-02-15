@@ -14,6 +14,12 @@ export default defineConfig({
         '@': '/src',
         '@components': '/src/components'
       }
+    },
+    ssr: {
+      noExternal: ['three']
+    },
+    optimizeDeps: {
+      include: ['three']
     }
   },
   output: 'static',
