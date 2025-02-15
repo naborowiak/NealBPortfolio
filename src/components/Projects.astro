@@ -27,23 +27,23 @@ const featuredProjects = [
 ];
 ---
 
-<section id="projects" class="py-16 bg-white">
+<section id="projects" class="py-16 bg-white dark:bg-polaris-bg-dark">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-polaris-accent mb-4">Featured Projects</h2>
-      <p class="text-polaris-text/80 max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold text-polaris-accent dark:text-polaris-accent-dark mb-4">Featured Projects</h2>
+      <p class="text-polaris-text/80 dark:text-polaris-text-dark/80 max-w-2xl mx-auto">
         Explore my ServiceNow implementations and custom solutions
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
       {featuredProjects.map((project) => (
-        <article class="bg-polaris-bg p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <h3 class="text-xl font-semibold text-polaris-accent mb-3">{project.title}</h3>
-          <p class="text-polaris-text/80 mb-4">{project.description}</p>
+        <article class="bg-polaris-bg dark:bg-polaris-bg-dark p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-polaris-border dark:border-polaris-border-dark">
+          <h3 class="text-xl font-semibold text-polaris-accent dark:text-polaris-accent-dark mb-3">{project.title}</h3>
+          <p class="text-polaris-text/80 dark:text-polaris-text-dark/80 mb-4">{project.description}</p>
           <div class="flex flex-wrap gap-2">
             {project.tech.map((tech) => (
-              <span class="px-3 py-1 text-sm bg-polaris-secondary/10 text-polaris-primary rounded-full">
+              <span class="px-3 py-1 text-sm bg-polaris-secondary/10 dark:bg-polaris-secondary-dark/10 text-polaris-primary dark:text-polaris-primary-dark rounded-full">
                 {tech}
               </span>
             ))}

@@ -27,7 +27,7 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-polaris-bg text-polaris-text">
+  <body class="bg-polaris-bg dark:bg-polaris-bg-dark text-polaris-text dark:text-polaris-text-dark transition-colors duration-200">
     <ThemeProvider client:load>
       <ScrollProgress client:load />
       <Background3D client:load />
@@ -47,6 +47,16 @@ const { title } = Astro.props;
     --polaris-text: #2C3E50;
     --polaris-border: #E2E8F0;
     --polaris-hover: #F1F5F9;
+  }
+
+  html.dark {
+    --polaris-primary: #3DA76D;
+    --polaris-secondary: #A4C9B9;
+    --polaris-accent: #3A5154;
+    --polaris-bg: #1A1A1A;
+    --polaris-text: #E1E1E1;
+    --polaris-border: #333333;
+    --polaris-hover: #2A2A2A;
   }
 
   * {

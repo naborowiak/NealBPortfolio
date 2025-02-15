@@ -2,6 +2,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Mesh } from 'three';
 import { Environment, Float } from '@react-three/drei';
+import * as THREE from 'three';
 
 function AnimatedSphere() {
   const meshRef = useRef<Mesh>(null);
@@ -28,6 +29,8 @@ function AnimatedSphere() {
 }
 
 export default function Background3D() {
+  const theme = 'dark'; // Assuming a default theme
+
   return (
     <div className="fixed inset-0 -z-10 opacity-50">
       <Canvas camera={{ position: [0, 0, 5] }}>
