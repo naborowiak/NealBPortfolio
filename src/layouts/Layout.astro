@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
 import ScrollProgress from '../components/react/ScrollProgress';
+import Background3D from '../components/react/Background3D';
+import ThemeSwitcher from '../components/react/ThemeSwitcher';
+import { ThemeProvider } from '../context/ThemeContext';
 
 interface Props {
   title: string;
@@ -25,8 +28,12 @@ const { title } = Astro.props;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body class="bg-polaris-bg text-polaris-text">
-    <ScrollProgress client:load />
-    <slot />
+    <ThemeProvider client:load>
+      <ScrollProgress client:load />
+      <Background3D client:load />
+      <slot />
+      <ThemeSwitcher client:load />
+    </ThemeProvider>
   </body>
 </html>
 
