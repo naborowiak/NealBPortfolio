@@ -1,17 +1,17 @@
 ---
 const technologies = [
-  "astro",
-  "react",
-  "typeScript",
-  "tailwindcss",
-  "nodejs",
-  "HTML5",
-  "CSS3",
-  "javaScript",
+  "servicenow",
+  "integrationhub",
+  "flowdesigner",
+  "atf",
+  "javascript",
+  "rest-api",
+  "html5",
+  "css3",
   "git",
-  "supabase",
-  "mysql",
-  "bash"
+  "healthcare",
+  "epic",
+  "cerner"
 ];
 ---
 
@@ -31,7 +31,7 @@ const technologies = [
           loading="lazy"
         />
         <span class="text-lg font-medium text-[var(--white-icon)]">
-          {tech.charAt(0).toUpperCase() + tech.slice(1)}
+          {tech.charAt(0).toUpperCase() + tech.slice(1).replace('-', ' ')}
         </span>
       </div>
     ))}
