@@ -3,9 +3,11 @@ import LetterGlitch from "../React/LetterGlitch.tsx";
 import LogoWall from "../components/logoWall.astro";
 import SkillsList from "../React/SkillsList.tsx";
 import { Image } from "astro:assets";
+import FloatingLogo from "../React/FloatingLogo";
 ---
 
 <section class="min-h-screen flex items-center justify-center flex-col gap-6 py-32">
+  <FloatingLogo client:load />
   <div class="flex flex-col items-center gap-4">
     <h1 class="text-4xl md:text-6xl font-bold text-[var(--white)] text-center">
       Neal Borowiak
