@@ -19,14 +19,10 @@ export default defineConfig({
       }
     },
     ssr: {
-<<<<<<< HEAD
-      noExternal: ['three']
+      noExternal: ['@astrojs/react', 'framer-motion', '@react-three/fiber', '@react-three/drei', 'three']
     },
     optimizeDeps: {
       include: ['three']
-=======
-      noExternal: ['@astrojs/react', 'framer-motion', '@react-three/fiber', '@react-three/drei']
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
     }
   },
   output: 'static',
