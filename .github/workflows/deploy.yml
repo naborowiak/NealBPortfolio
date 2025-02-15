@@ -23,9 +23,7 @@ jobs:
           node-version: '18'
       
       - name: Install Dependencies
-        run: |
-          npm install
-          npm install framer-motion @types/framer-motion
+        run: npm install
       
       - name: Build
         run: npm run build
