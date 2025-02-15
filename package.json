@@ -24,7 +24,7 @@
     "typescript": "^5.7.3"
   },
   "devDependencies": {
-    "@rollup/rollup-win32-x64-msvc": "4.9.5",
+    "@rollup/rollup-linux-x64-gnu": "4.9.5",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1"
   }
