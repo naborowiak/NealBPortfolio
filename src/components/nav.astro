@@ -43,16 +43,6 @@ const navItems = [
 </nav>
 
 <script>
-  // Mobile menu toggle
-  const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  menuButton?.addEventListener('click', () => {
-    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
-    mobileMenu?.classList.toggle('hidden');
-  });
-
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -63,9 +53,6 @@ const navItems = [
         target?.scrollIntoView({
           behavior: 'smooth'
         });
-        // Close mobile menu if open
-        mobileMenu?.classList.add('hidden');
-        menuButton?.setAttribute('aria-expanded', 'false');
       }
     });
   });
