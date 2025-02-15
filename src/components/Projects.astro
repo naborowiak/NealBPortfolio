@@ -1,16 +1,4 @@
 ---
-import type { ImageMetadata } from "astro";
-import svgl from "../../public/svgl.png";
-import stockin from "../../public/stockin.png";
-
-interface Project {
-  title: string;
-  image: ImageMetadata;
-  link: string;
-  preview: string;
-  status: string;
-}
-
 const featuredProjects = [
   {
     title: "Healthcare Integration Suite",
@@ -39,30 +27,6 @@ const featuredProjects = [
 ];
 ---
 
-<<<<<<< HEAD
-<section id="projects" class="w-full py-12 border-t border-[#ffffff10]">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Featured Work</h2>
-    <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-12">Projects</h3>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {
-        featuredProjects.map((project) => (
-          <article class="bg-[#1414149c] p-6 rounded-lg border border-[var(--white-icon-tr)] group hover:border-[var(--sec)] transition-colors">
-            <h3 class="text-[var(--white)] text-xl font-medium mb-2">{project.title}</h3>
-            <p class="text-[var(--white-icon)] mb-4">{project.description}</p>
-            <div class="flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <span class="px-3 py-1 text-sm bg-[#ffffff10] text-[var(--white-icon)] rounded-full">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </article>
-        ))
-      }
-    </div>
-=======
 <section id="projects" class="py-16 bg-white">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
@@ -72,49 +36,19 @@ const featuredProjects = [
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projects.map(project => (
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:-translate-y-1">
-          <div class="aspect-video bg-polaris-bg">
-            {project.image && (
-              <img 
-                src={project.image} 
-                alt={project.title}
-                class="w-full h-full object-cover"
-              />
-            )}
+    <div class="grid md:grid-cols-2 gap-8">
+      {featuredProjects.map((project) => (
+        <article class="bg-polaris-bg p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="text-xl font-semibold text-polaris-accent mb-3">{project.title}</h3>
+          <p class="text-polaris-text/80 mb-4">{project.description}</p>
+          <div class="flex flex-wrap gap-2">
+            {project.tech.map((tech) => (
+              <span class="px-3 py-1 text-sm bg-polaris-secondary/10 text-polaris-primary rounded-full">
+                {tech}
+              </span>
+            ))}
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-polaris-accent mb-2">
-              {project.title}
-            </h3>
-            <p class="text-polaris-text/80 mb-4">
-              {project.status}
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <a 
-                target="_blank" 
-                href={project.link} 
-                aria-label="GitHub" 
-                class="px-3 py-1 bg-polaris-secondary/10 text-polaris-primary rounded-full text-sm hover:bg-opacity-90 transition"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
-                  <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z"></path>
-                </svg>
-              </a>
-              <a 
-                target="_blank" 
-                href={project.preview} 
-                aria-label="Preview" 
-                class="px-3 py-1 bg-polaris-secondary/10 text-polaris-primary rounded-full text-sm hover:bg-opacity-90 transition"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
-                  <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
+        </article>
       ))}
     </div>
 
@@ -129,6 +63,5 @@ const featuredProjects = [
         </svg>
       </a>
     </div>
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
   </div>
 </section>
