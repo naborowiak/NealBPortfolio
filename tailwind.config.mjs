@@ -6,13 +6,34 @@ export default {
     extend: {
       colors: {
         'polaris': {
-          primary: 'var(--polaris-primary)',
-          secondary: 'var(--polaris-secondary)',
-          accent: 'var(--polaris-accent)',
-          bg: 'var(--polaris-bg)',
-          text: 'var(--polaris-text)',
-          border: 'var(--polaris-border)',
-          hover: 'var(--polaris-hover)',
+          primary: {
+            DEFAULT: 'var(--polaris-primary)',
+            dark: '#3DA76D'
+          },
+          secondary: {
+            DEFAULT: 'var(--polaris-secondary)',
+            dark: '#A4C9B9'
+          },
+          accent: {
+            DEFAULT: 'var(--polaris-accent)',
+            dark: '#3A5154'
+          },
+          bg: {
+            DEFAULT: 'var(--polaris-bg)',
+            dark: '#1A1A1A'
+          },
+          text: {
+            DEFAULT: 'var(--polaris-text)',
+            dark: '#E1E1E1'
+          },
+          border: {
+            DEFAULT: 'var(--polaris-border)',
+            dark: '#333333'
+          },
+          hover: {
+            DEFAULT: 'var(--polaris-hover)',
+            dark: '#2A2A2A'
+          }
         },
       },
       animation: {

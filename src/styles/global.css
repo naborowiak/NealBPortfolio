@@ -1,6 +1,6 @@
 /* Base styles */
 :root {
-  /* ServiceNow Polaris Color Palette */
+  /* Light mode */
   --polaris-primary: #2E8B57;
   --polaris-secondary: #81B5A1;
   --polaris-accent: #293E40;
@@ -16,13 +16,15 @@
   --sec: #2E8B57;
 }
 
-/* Dark theme */
-[data-theme="dark"] {
+.dark {
+  /* Dark mode */
+  --polaris-primary: #3DA76D;
+  --polaris-secondary: #A4C9B9;
+  --polaris-accent: #3A5154;
   --polaris-bg: #1A1A1A;
-  --polaris-text: #E2E8F0;
-  --polaris-accent: #81B5A1;
-  --polaris-border: #2D3748;
-  --polaris-hover: #2D3748;
+  --polaris-text: #E1E1E1;
+  --polaris-border: #333333;
+  --polaris-hover: #2A2A2A;
 }
 
 /* Reset */
