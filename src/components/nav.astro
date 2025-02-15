@@ -1,29 +1,13 @@
 ---
-interface NavItem {
-  label: string;
-  href: string;
-  icon: string;
-}
-
-const navItems: NavItem[] = [
-  {
-    label: "Home",
-    href: "#home",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M21 20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.48907C3 9.18048 3.14247 8.88917 3.38606 8.69972L11.3861 2.47749C11.7472 2.19663 12.2528 2.19663 12.6139 2.47749L20.6139 8.69972C20.8575 8.88917 21 9.18048 21 9.48907V20ZM19 19V9.97815L12 4.53371L5 9.97815V19H19Z"></path></svg>`,
-  },
-  {
-    label: "Projects",
-    href: "#projects",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 5V19H20V7H11.5858L9.58579 5H4ZM12.4142 5H21C21.5523 5 22 5.44772 22 6V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5Z"></path></svg>`,
-  },
-  {
-    label: "Contact",
-    href: "#contact",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M21.7267 2.95694L16.2734 22.0432C16.1225 22.5716 15.7979 22.5956 15.5563 22.1126L11 13L1.9229 9.36919C1.41322 9.16532 1.41953 8.86022 1.95695 8.68108L21.0432 2.31901C21.5716 2.14285 21.8747 2.43866 21.7267 2.95694ZM19.0353 5.09647L6.81221 9.17085L12.4488 11.4255L15.4895 17.5068L19.0353 5.09647Z"></path></svg>`,
-  },
+const navItems = [
+  { name: 'Home', href: '#' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Resources', href: '#resources' },
+  { name: 'Knowledge Base', href: '#knowledge-base' }
 ];
 ---
 
+<<<<<<< HEAD
 <header class="w-full fixed top-0 z-50 border-b border-[#ffffff10] backdrop-blur-md">
   <nav class="max-w-5xl mx-auto p-4">
     <ul class="flex justify-end gap-8">
@@ -64,30 +48,110 @@ const navItems: NavItem[] = [
           ))
         }
       </ul>
+=======
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-polaris-border">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-8">
+        <a 
+          href="/" 
+          class="text-xl font-semibold text-polaris-accent hover:text-polaris-primary transition-colors"
+        >
+          Neal B.
+        </a>
+        <div class="hidden md:flex items-center gap-6">
+          {navItems.map(item => (
+            <a 
+              href={item.href}
+              class="group relative text-polaris-text hover:text-polaris-primary transition-colors px-3 py-2 text-sm font-medium"
+            >
+              {item.name}
+              <span class="absolute inset-x-0 bottom-0 h-0.5 bg-polaris-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <button 
+          class="bg-polaris-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition-colors relative overflow-hidden group"
+        >
+          <span class="relative z-10">Contact</span>
+          <div class="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform"></div>
+        </button>
+        
+        <!-- Mobile menu button -->
+        <button 
+          type="button"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-polaris-text hover:text-polaris-primary focus:outline-none"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+>>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
     </div>
-  </nav>
-</div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="md:hidden hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="block px-3 py-2 rounded-md text-base font-medium text-polaris-text hover:text-polaris-primary hover:bg-polaris-hover transition-colors"
+        >
+          {item.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
 
 <script>
+<<<<<<< HEAD
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
+=======
+  // Mobile menu toggle
+  const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton?.addEventListener('click', () => {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+>>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
       e.preventDefault();
-      const target = e.currentTarget as HTMLAnchorElement;
-      const targetId = target.getAttribute("href")?.substring(1) || "";
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
+      const href = this.getAttribute('href');
+      if (href) {
+        const target = document.querySelector(href);
+        target?.scrollIntoView({
+          behavior: 'smooth'
         });
+        // Close mobile menu if open
+        mobileMenu?.classList.add('hidden');
+        menuButton?.setAttribute('aria-expanded', 'false');
       }
     });
   });
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll("nav a[href^='#']");
-    const observerOptions = { threshold: 0.6 };
+  // Active section highlighting
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.7
+  };
 
+<<<<<<< HEAD
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -96,24 +160,30 @@ const navItems: NavItem[] = [
           const activeLink = document.querySelector(`nav a[href="#${id}"]`);
           if (activeLink) {
             activeLink.classList.add("active");
+=======
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        document.querySelectorAll('nav a').forEach(link => {
+          link.classList.remove('text-polaris-primary');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('text-polaris-primary');
+>>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
           }
-        }
-      });
-    };
+        });
+      }
+    });
+  }, observerOptions);
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    sections.forEach((section) => observer.observe(section));
+  document.querySelectorAll('section[id]').forEach(section => {
+    observer.observe(section);
   });
 </script>
 
 <style>
-  @media (max-width: 767px) {
-    body {
-      padding-bottom: 70px;
-    }
-  }
-  
-  nav a.active {
-    color: white !important;
+  /* Add smooth transition for mobile menu */
+  #mobile-menu {
+    transition: all 0.3s ease-in-out;
   }
 </style>

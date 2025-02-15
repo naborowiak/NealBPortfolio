@@ -1,16 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Nav from "../components/nav.astro";
-import Home from "../components/home.astro";
-import Projects from "../components/projects.astro";
-import Contact from "@/components/contact.astro";
-import Footer from "../components/footer.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import AIChat from "../components/AIChat.astro";
+import Projects from "../components/Projects.astro";
+import Resources from "../components/Resources.astro";
+import KnowledgeBase from "../components/KnowledgeBase.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
 ---
 
+<<<<<<< HEAD
 <Layout title="Neal Borowiak | ServiceNow Developer">
+=======
+<Layout title="ServiceNow Development Hub | Neal Borowiak">
+>>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
   <Nav />
-  <Home />
-  <Projects />
-  <Contact />
+  <main class="container mx-auto px-4 py-8">
+    <Hero />
+    <AIChat />
+    <Projects />
+    <Resources />
+    <KnowledgeBase />
+    <Contact />
+  </main>
   <Footer />
 </Layout>
