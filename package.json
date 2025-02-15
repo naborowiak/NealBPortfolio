@@ -1,43 +1,17 @@
 {
-<<<<<<< HEAD
-  "name": "neal-borowiak-portfolio",
-  "type": "module",
-  "version": "1.0.0",
-=======
   "name": "neal-portfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/naborowiak/NealBPortfolio.git"
   },
   "homepage": "https://nealb.pro",
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-<<<<<<< HEAD
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.5.0",
-    "@astrojs/react": "^4.2.0",
-    "@astrojs/tailwind": "^6.0.0",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "astro": "^5.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwindcss": "^3.4.17",
-    "three": "^0.162.0",
-    "@types/three": "^0.162.0",
-    "typescript": "^5.7.3"
-  },
-  "devDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.9.5",
-=======
     "astro": "astro",
     "lint": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md,astro}\"",
     "type-check": "tsc --noEmit"
@@ -64,8 +38,7 @@
   "devDependencies": {
     "@types/node": "^22.13.2",
     "@types/three": "^0.162.0",
-    "gh-pages": "^6.3.0",
->>>>>>> f63492a3d8b7615ef2d02e03b5817c1c93f56905
+    "@rollup/rollup-linux-x64-gnu": "4.9.5",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1"
   }
