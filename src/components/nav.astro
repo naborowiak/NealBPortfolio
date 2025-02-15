@@ -24,6 +24,25 @@ const navItems: NavItem[] = [
 ];
 ---
 
+<header class="w-full fixed top-0 z-50 border-b border-[#ffffff10] backdrop-blur-md">
+  <nav class="max-w-5xl mx-auto p-4">
+    <ul class="flex justify-end gap-8">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="text-[var(--white-icon)] hover:text-[var(--white)] transition-colors"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
 <div class="flex justify-center w-full">
   <nav class="fixed flex left-0 right-0 z-[100] bg-[#1414149c] border border-1 border-[var(--white-icon-tr)] backdrop-blur-xl transition-all md:top-0 md:bottom-auto bottom-0 md:w-[33rem] rounded-t-2xl md:rounded-full md:mt-6 md:justify-self-center">  
     <div class="container mx-auto flex justify-center items-center p-3">

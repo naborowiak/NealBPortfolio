@@ -2,7 +2,36 @@
 import LetterGlitch from "../React/LetterGlitch.tsx";
 import LogoWall from "../components/logoWall.astro";
 import SkillsList from "../React/SkillsList.tsx";
+import { Image } from "astro:assets";
 ---
+
+<section class="min-h-screen flex items-center justify-center flex-col gap-6 py-32">
+  <div class="flex flex-col items-center gap-4">
+    <h1 class="text-4xl md:text-6xl font-bold text-[var(--white)] text-center">
+      Neal Borowiak
+      <span class="block text-[var(--sec)]">ServiceNow Developer</span>
+    </h1>
+    <p class="text-[var(--white-icon)] text-center max-w-2xl text-lg">
+      Senior ServiceNow Developer at Cerner/Oracle, specializing in healthcare IT solutions, 
+      system integrations, and custom application development.
+    </p>
+  </div>
+
+  <div class="flex gap-4">
+    <a
+      href="#projects"
+      class="px-6 py-2 bg-[var(--white-icon-tr)] text-[var(--white)] rounded-lg opacity-60 transition-opacity border border-[var(--white-icon-tr)] hover:opacity-100"
+    >
+      View Projects
+    </a>
+    <a
+      href="#contact"
+      class="px-6 py-2 bg-[var(--white-icon-tr)] text-[var(--white)] rounded-lg opacity-60 transition-opacity border border-[var(--white-icon-tr)] hover:opacity-100"
+    >
+      Contact Me
+    </a>
+  </div>
+</section>
 
 <section class="text-[var(--white)] mt-12 md:mt-0" id="home">
   <div class="max-w-5xl mx-auto space-y-8 md:py-36 pb-14">
